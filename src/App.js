@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import Welcome from "./components/Welcome";
+import MainContent from "./components/MainContent";
+import styled from "styled-components";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+        <Welcome />
+        <MainContent />
+    </Wrapper>
   );
 }
+const Wrapper = styled.div`
+  display: grid;
+  gap: 20px;
+  @media (min-width: 680px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 
 export default App;
