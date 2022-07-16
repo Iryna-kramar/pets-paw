@@ -1,25 +1,28 @@
 import React from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./index.css";
 import Welcome from "./components/Welcome";
-import MainContent from "./components/MainContent";
+import MainContent from "./components/HomeContent";
 import styled from "styled-components";
-
+import Home from "./pages/Home";
+import Voting from "./pages/Voting";
+import Breeds from "./pages/Breeds";
+import Gallery from "./pages/Gallery";
+import { PetsPawProvider } from "./API/PetsService";
 
 function App() {
   return (
-    <Wrapper>
-        <Welcome />
-        <MainContent />
-    </Wrapper>
+    <PetsPawProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Home />} />
+          <Route path="/voting" element={<Voting />} />
+          <Route path="/breeds" element={<Breeds />} />
+          <Route path="/gallery" element={<Gallery />} />
+        </Routes>
+      </BrowserRouter>
+    </PetsPawProvider>
   );
 }
-const Wrapper = styled.div`
-  display: grid;
-  gap: 20px;
-  @media (min-width: 680px) {
-    grid-template-columns: 1fr 1fr;
-  }
-`;
-
 
 export default App;

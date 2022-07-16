@@ -41,6 +41,7 @@ export default function NavBar() {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 10px;
   padding-top:20px;
 `;

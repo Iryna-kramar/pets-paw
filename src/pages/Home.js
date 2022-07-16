@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
-//import axios from "axios";
+import React from "react";
+import Welcome from "../components/Welcome";
+import HomeContent from "../components/HomeContent";
+import styled from "styled-components";
 
 
-const Home = () => {
-  const axios = require("axios").default;
+function Home() {
+  return (
+    <Wrapper>
+      <Welcome />
+      <HomeContent />
+    </Wrapper>
+  );
+}
 
-  return axios({
-    method: "GET",
-    url: "https://api.thecatapi.com/v1/breeds",
-    headers: {
-      "x-api-key": "16ed9974-5f25-443f-8cb6-cd0d9d6d3b1a",
-    },
-  })
-    .then((resp) => {
-      console.log(resp.data);
-    })
-    .catch((err) => {
-      // Handle Error Here
-      console.error(err);
-    });
-};
+const Wrapper = styled.div`
+  display: grid;
+  gap: 20px;
+
+  @media (min-width: 890px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 
 export default Home;

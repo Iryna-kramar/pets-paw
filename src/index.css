@@ -4,13 +4,13 @@
 ::after,
 ::before {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   box-sizing: border-box;
 }
 body {
   padding: 30px;
   font-family: "Jost", sans-serif;
-  background: #F8F8F7;
+  background: #f8f8f7;
 }
 
 h1,
@@ -20,3 +20,6 @@ h4 {
   font-family: "Jost", sans-serif;
 }
 
+/* path {
+  fill: inherit;
+} */
