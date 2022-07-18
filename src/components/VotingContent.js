@@ -8,8 +8,7 @@ import VOTING from "../images/VOTING.png";
 
 
 function VotingContent() {
-    const { image } = React.useContext(PetsPawContext);
-    const { id } = image;
+    // const { searchBreeds } = React.useContext(PetsPawContext);
 
   return (
     <div>
@@ -17,17 +16,17 @@ function VotingContent() {
       <ContentWrapper>
         <div className="buttons">
           <ArrowLeftButton />
-          <img src={VOTING} className="pageName"></img>
+          <img src={VOTING} className="pageName" alt="voting"></img>
         </div>
         <div className="pictures">
           {/* <img src={image.url} alt={name}></img> */}
-          <h3>{id}</h3>
+          <h3>id</h3>
         </div>
         <div className="actions"></div>
       </ContentWrapper>
     </div>
   );
-}
+};
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -35,7 +34,7 @@ const ContentWrapper = styled.div`
   padding: 20px;
   background: #ffffff;
   border-radius: 20px;
-  height: 100%;
+  height: 100vh;
 
   div.buttons {
     display: flex;

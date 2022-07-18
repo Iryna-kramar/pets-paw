@@ -16,6 +16,7 @@ function Home() {
 const Wrapper = styled.div`
   display: grid;
   gap: 20px;
+  height: 100%;
 
   @media (min-width: 890px) {
     grid-template-columns: 1fr 1fr;

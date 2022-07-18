@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   background: #fbe0dc;
   border-radius: 20px;
-  height: 100vh;
+  height: 100%;
 
   div {
     position: absolute;

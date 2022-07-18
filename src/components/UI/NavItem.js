@@ -8,7 +8,7 @@ const NavItem = ({ icon, color, value }) => {
 
   return (
     <WrapperItems>
-      <div className={color}>{icon}</div>
+      <div className={value}>{icon}</div>
       <Link className="link" to={`/${lowerCaseValue}`}>
         <MyButton>{value}</MyButton>
       </Link>
@@ -45,13 +45,13 @@ const WrapperItems = styled.article`
     width: 100%;
   }
 
-  .purple {
+  .VOTING {
     background-color: #b4b7ff;
   }
-  .green {
+  .BREEDS {
     background-color: #97eab9;
   }
-  .yellow {
+  .GALLERY {
     background-color: #ffd280;
   }
 `;

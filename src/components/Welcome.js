@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 446px;
+  height: 100%;
 
   h1 {
     padding-top: 75px;

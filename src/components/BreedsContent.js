@@ -1,14 +1,14 @@
 import React from "react";
 import "../index.css";
 import styled from "styled-components";
-import BREEDS from "../images/VOTING.png";
+import BREEDS from "../images/BREEDS.png";
 import ButtonTopBar from "./ButtonTopBar";
 import GridPics from "./GridPics";
 import ArrowLeftButton from "../images/ArrowLeftButton";
 
 function BreedsContent() {
   return (
-    <div>
+    <ButtontWrapper>
       <ButtonTopBar></ButtonTopBar>
       <ContentWrapper>
         <div className="buttons">
@@ -19,11 +19,17 @@ function BreedsContent() {
           <div>Select by AB</div>
           <div>Select by BA </div>
         </div>
-        <GridPics />
+          <GridPics />
       </ContentWrapper>
-    </div>
+    </ButtontWrapper>
   );
 }
+
+
+const ButtontWrapper = styled.div`
+  height: 100vh;
+`;
+
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -40,7 +46,8 @@ const ContentWrapper = styled.div`
     gap: 10px;
   }
 
-
 `;
+
+
 
 export default BreedsContent;

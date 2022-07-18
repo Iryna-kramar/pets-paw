@@ -8,24 +8,6 @@ const Search = () => {
   const [name, setName] = useState("");
  const { searchBreeds } = useContext(PetsPawContext);
 
-  // const searchBreedsByName = async (name) => {
-  //   const axios = require("axios").default;
-
-  //   return await axios({
-  //     method: "GET",
-  //     url: `https://api.thecatapi.com/v1/breeds/search?q=${name}`,
-  //     headers: {
-  //       "x-api-key": "16ed9974-5f25-443f-8cb6-cd0d9d6d3b1a",
-  //     },
-  //   })
-  //     .then((resp) => {
-  //       console.log(resp.data);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {

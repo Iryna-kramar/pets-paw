@@ -4,11 +4,12 @@
 ::after,
 ::before {
   margin: 0;
-  /* padding: 0; */
+  padding: 0;
   box-sizing: border-box;
 }
+
+html,
 body {
-  padding: 30px;
   font-family: "Jost", sans-serif;
   background: #f8f8f7;
 }
@@ -23,3 +24,8 @@ h4 {
 /* path {
   fill: inherit;
 } */
+.App {
+  padding: 30px;
+  width: 100vw;
+  height: 100vh;
+}

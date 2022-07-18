@@ -11,19 +11,16 @@ export default function NavBar() {
     {
       id: 1,
       icon: <img src={vote} className="icon" alt="vote"></img>,
-      color: "purple",
       value: "VOTING",
     },
     {
       id: 2,
       icon: <img src={breeds} className="icon" alt="breeds"></img>,
-      color: "green",
       value: "BREEDS",
     },
     {
       id: 3,
       icon: <img src={images} className="icon" alt="images"></img>,
-      color: "yellow",
       value: "GALLERY",
     },
   ];

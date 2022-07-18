@@ -3,7 +3,7 @@ import "../index.css";
 import styled from "styled-components";
 import ButtonTopBar from "./ButtonTopBar";
 import ArrowLeftButton from "../images/ArrowLeftButton";
-import VOTING from "../images/VOTING.png";
+import GALLERY from "../images/GALLERY.png";
 import UPLOAD from "../images/UPLOAD.svg";
 import GridPics from "./GridPics";
 
@@ -15,7 +15,7 @@ function GalleryContent() {
         <div className="buttons">
           <div>
             <ArrowLeftButton />
-            <img src={VOTING} className="pageName"></img>
+            <img src={GALLERY} className="pageName"></img>
           </div>
           <img src={UPLOAD} className="upload"></img>
         </div>
@@ -32,7 +32,7 @@ const ContentWrapper = styled.div`
   padding: 20px;
   background: #ffffff;
   border-radius: 20px;
-  height: 100%;
+  height: 100vh;
 
   div.buttons {
     display: flex;

@@ -135,8 +135,10 @@ const itemData = [
 ];
 
 const GridWrapper = styled.div`
-  margin-top: 20px;
-  img {
+    max-height: 100vh;
+    overflow: scroll;
+    margin-top: 20px;
+   img {
     border-radius: 16px;
   }
 `;

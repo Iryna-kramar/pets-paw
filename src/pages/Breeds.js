@@ -6,7 +6,9 @@ import styled from "styled-components";
 function Breeds() {
   return (
     <Wrapper>
-      <Welcome />
+      <div className="welcome">
+        <Welcome />
+      </div>
       <BreedsContent />
     </Wrapper>
   );
@@ -15,6 +17,8 @@ function Breeds() {
 const Wrapper = styled.div`
   display: grid;
   gap: 20px;
+  height: 100%;
+
 
   @media (min-width: 890px) {
     grid-template-columns: 1fr 1fr;
