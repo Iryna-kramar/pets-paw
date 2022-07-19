@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Stack, ImageList, ImageListItem } from "@mui/material";
 import styled from "styled-components";
-import {PetsPawContext} from "../API/PetsService";
+import { PetsPawContext } from "../API/PetsService";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -13,8 +13,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 function GridPics() {
-    // const { data } = useContext(PetsPawContext);
-    // const { name, image } = data;
+  const { nameImageData } = useContext(PetsPawContext);
 
   return (
     <GridWrapper>
@@ -26,9 +25,9 @@ function GridPics() {
           rowHeight={121}
           gap={16}
         >
-          {itemData.map((item) => (
+          {nameImageData.map((item) => (
             <ImageListItem
-              key={item.img}
+              key={item.url}
               cols={item.cols || 1}
               rows={item.rows || 1}
             >
@@ -139,10 +138,10 @@ const itemData = [
 ];
 
 const GridWrapper = styled.div`
-    max-height: 100vh;
-    overflow: scroll;
-    margin-top: 20px;
-   img {
+  max-height: 100vh;
+  overflow: scroll;
+  margin-top: 20px;
+  img {
     border-radius: 16px;
   }
 `;

@@ -6,12 +6,11 @@ import Reactions from "./UI/Reactions";
 import Icons from "../images/Icons";
 import IconButtons from "../images/IconButtons";
 
-
 function ButtonTopBar() {
   return (
     <ButtonWrapper>
-      <Search></Search>
-      <Icons></Icons>
+      <Search />
+      <Icons />
     </ButtonWrapper>
   );
 }

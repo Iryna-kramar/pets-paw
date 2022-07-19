@@ -3,10 +3,11 @@ import React, { useState, createContext } from "react";
 const PetsPawContext = createContext();
 
 const PetsPawProvider = ({ children }) => {
-  const [dataByName, setdDataByName] = useState([]);
+  const [data, setData] = useState([]);
+  const [nameImageData, setNameImageData] = useState([]);
+  const [dataByName, setDataByName] = useState([]);
   const [dataImage, setDataImage] = useState([]);
   const [getName, setGetName] = useState([]);
-  const [data, setData] = useState([]);
 
   const axios = require("axios").default;
 
@@ -15,24 +16,51 @@ const PetsPawProvider = ({ children }) => {
   };
   const url = "https://api.thecatapi.com/v1/breeds/";
 
-  const searchBreeds = async (name) => {
-    const response = await axios
-      .get(`${url}`, `${headers}`)
+  const searchBreeds = async (inputValue) => {
+    const resp = await axios
+      .get(`${url}search?q=${inputValue}`, `${headers}`)
       .catch((err) => console.log(err));
-    setData(response.data);
 
-    const data = response.data;
-    console.log(data, "DATA");
+    if (resp.data.length === 1) {
+      console.log(inputValue);
 
-    const result = data.filter((breed) => breed.name === `${name}`);
-    setdDataByName(result);
-    setDataImage(result[0].image);
-    setGetName(result[0].name);
+      const response = await axios
+        .get(`${url}`, `${headers}`)
+        .catch((err) => console.log(err));
+      setData(response.data);
+
+      const data = response.data;
+      console.log(data, "DATA");
+      const shortData = data.map((obj) => {
+        return {
+          name: obj.name,
+          image: obj.image,
+          url: obj.image?.url,
+        };
+      });
+
+      setNameImageData(shortData);
+      console.log(shortData, "shortData");
+
+      const result = data.filter((breed) => breed.name.includes(inputValue));
+      setDataByName(result);
+      setDataImage(result[0].image);
+      setGetName(result[0].name);
+    } else {
+      alert("no such breed name. Try again!");
+    }
   };
 
   return (
     <PetsPawContext.Provider
-      value={{ dataByName, dataImage, getName, data, searchBreeds }}
+      value={{
+        dataByName,
+        dataImage,
+        getName,
+        data,
+        nameImageData,
+        searchBreeds,
+      }}
     >
       {children}
     </PetsPawContext.Provider>
@@ -41,14 +69,4 @@ const PetsPawProvider = ({ children }) => {
 
 export { PetsPawProvider, PetsPawContext };
 
-// const searchBreeds = async (name) => {
-//   const response = await axios
-//     .get(`${url}search?q=${name}`, `${headers}`)
-//     .catch((err) => console.log(err));
-//   if (response.data.length === 1) {
-//     setBreed(response.data);
-//     console.log(response.data);
-//   } else {
-//     console.log("no such name. Try again!");
-//   }
-// };
+

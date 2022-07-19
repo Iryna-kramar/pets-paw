@@ -5,7 +5,7 @@ import { PetsPawContext } from "../../API/PetsService";
 
 
 const Search = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Abyssinian");
  const { searchBreeds } = useContext(PetsPawContext);
 
   const handleSubmit = (e) => {
@@ -13,7 +13,6 @@ const Search = () => {
     if (name) {
       searchBreeds(name);
     }
-    console.log(name);
   };
 
   return (

@@ -13,7 +13,7 @@ function VotingContent() {
 
   return (
     <div>
-      <ButtonTopBar></ButtonTopBar>
+      <ButtonTopBar />
       <ContentWrapper>
         <div className="buttons">
           <ArrowLeftButton />
