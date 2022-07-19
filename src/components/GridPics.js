@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Stack, ImageList, ImageListItem } from "@mui/material";
 import styled from "styled-components";
+import {PetsPawContext} from "../API/PetsService";
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -12,6 +13,9 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 function GridPics() {
+    // const { data } = useContext(PetsPawContext);
+    // const { name, image } = data;
+
   return (
     <GridWrapper>
       <Stack>
