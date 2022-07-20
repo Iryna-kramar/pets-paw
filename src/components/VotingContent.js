@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../index.css";
 import styled from "styled-components";
 import { PetsPawContext } from "../API/PetsService";
@@ -7,9 +7,9 @@ import ArrowLeftButton from "../images/ArrowLeftButton";
 import VOTING from "../images/VOTING.png";
 
 function VotingContent() {
-  const { getName } = useContext(PetsPawContext);
+  const { dataByName } = useContext(PetsPawContext);
   const { dataImage } = useContext(PetsPawContext);
-  const { url, id } = dataImage;
+  const { name } = dataByName;
 
   return (
     <div>
@@ -20,10 +20,11 @@ function VotingContent() {
           <img src={VOTING} className="pageName" alt="voting"></img>
         </div>
         <div className="pictures">
-          <img src={url} alt={getName}></img>
+          <img src={dataByName[0].url} alt={dataByName[0].name}></img>
         </div>
         <div className="actions">
-          <h3>{id}</h3>
+          <h3>{dataByName[0].image_id}</h3>
+          <h3>{name}</h3>
         </div>
       </ContentWrapper>
     </div>
@@ -43,6 +44,10 @@ const ContentWrapper = styled.div`
     justify-content: flex-start;
     flex-direction: row;
     gap: 10px;
+    img {
+      width: 156px;
+      height: 40px;
+    }
   }
 
   div.pictures {

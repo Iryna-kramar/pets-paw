@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 import styled from "styled-components";
-import Search from "./UI/Search";
+import SearchForm from "./UI/SearchForm";
 import Reactions from "./UI/Reactions";
 import Icons from "../images/Icons";
 import IconButtons from "../images/IconButtons";
@@ -9,7 +9,7 @@ import IconButtons from "../images/IconButtons";
 function ButtonTopBar() {
   return (
     <ButtonWrapper>
-      <Search />
+      <SearchForm />
       <Icons />
     </ButtonWrapper>
   );

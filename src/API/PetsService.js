@@ -16,40 +16,49 @@ const PetsPawProvider = ({ children }) => {
   };
   const url = "https://api.thecatapi.com/v1/breeds/";
 
-  const searchBreeds = async (inputValue) => {
-    const resp = await axios
-      .get(`${url}search?q=${inputValue}`, `${headers}`)
+  const getAllData = async (props) => {
+    const response = await axios
+      .get(`${url}`, `${headers}`)
       .catch((err) => console.log(err));
 
-    if (resp.data.length === 1) {
-      console.log(inputValue);
+     if (response.data.some((breed) => breed.name.includes(props))) {
+       setData(response.data);
 
-      const response = await axios
-        .get(`${url}`, `${headers}`)
-        .catch((err) => console.log(err));
-      setData(response.data);
+       const data = response.data;
+       console.log(data, "DATA");
+       const shortData = data.map((obj) => {
+         return {
+           name: obj.name,
+           image: obj.image,
+           url: obj.image?.url,
+           image_id: obj.image?.id,
+         };
+       });
+       setNameImageData(shortData);
+       console.log(shortData, "nameImageData");
 
-      const data = response.data;
-      console.log(data, "DATA");
-      const shortData = data.map((obj) => {
-        return {
-          name: obj.name,
-          image: obj.image,
-          url: obj.image?.url,
-        };
-      });
 
-      setNameImageData(shortData);
-      console.log(shortData, "shortData");
-
-      const result = data.filter((breed) => breed.name.includes(inputValue));
-      setDataByName(result);
-      setDataImage(result[0].image);
-      setGetName(result[0].name);
-    } else {
+       const result = shortData.filter((breed) => breed.name.includes(props));
+       setDataByName(result);
+       console.log(result, "data by name");
+     } else {
       alert("no such breed name. Try again!");
-    }
-  };
+     }
+    };
+
+
+    const searchBreeds = async (inputValue) => {
+      const resp = await axios
+        .get(`${url}search?q=${inputValue}`, `${headers}`)
+        .catch((err) => console.log(err));
+
+      if (resp.data.length === 1) {
+        console.log(inputValue);
+
+      } else {
+        alert("no such breed name. Try again!");
+      }
+    };
 
   return (
     <PetsPawContext.Provider
@@ -60,6 +69,7 @@ const PetsPawProvider = ({ children }) => {
         data,
         nameImageData,
         searchBreeds,
+        getAllData,
       }}
     >
       {children}
@@ -68,5 +78,3 @@ const PetsPawProvider = ({ children }) => {
 };
 
 export { PetsPawProvider, PetsPawContext };
-
-

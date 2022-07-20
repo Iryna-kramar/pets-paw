@@ -4,14 +4,14 @@ import SearchButton from "../../images/SearchButton";
 import { PetsPawContext } from "../../API/PetsService";
 
 
-const Search = () => {
-  const [name, setName] = useState("Abyssinian");
- const { searchBreeds } = useContext(PetsPawContext);
+const SearchForm = () => {
+  const [name, setName] = useState("");
+  const { getAllData } = useContext(PetsPawContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
-      searchBreeds(name);
+      getAllData(name);
     }
   };
 
@@ -56,4 +56,4 @@ const Wrapper = styled.div`
 `;
 
 
-export default Search;
+export default SearchForm;
