@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../index.css";
 import styled from "styled-components";
 import { PetsPawContext } from "../API/PetsService";
@@ -8,8 +8,8 @@ import VOTING from "../images/VOTING.png";
 
 function VotingContent() {
   const { dataByName } = useContext(PetsPawContext);
-  const { dataImage } = useContext(PetsPawContext);
-  const { name } = dataByName;
+
+  // function displayCat(){рандомний кіт, якщо заповний інпут -> dataByName}
 
   return (
     <div>
@@ -20,11 +20,10 @@ function VotingContent() {
           <img src={VOTING} className="pageName" alt="voting"></img>
         </div>
         <div className="pictures">
-          <img src={dataByName[0].url} alt={dataByName[0].name}></img>
+          <img src={dataByName[0]?.url} alt={dataByName[0]?.name}></img>
         </div>
         <div className="actions">
-          <h3>{dataByName[0].image_id}</h3>
-          <h3>{name}</h3>
+          <h3>{dataByName[0]?.image_id}</h3>
         </div>
       </ContentWrapper>
     </div>

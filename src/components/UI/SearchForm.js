@@ -3,14 +3,15 @@ import styled from "styled-components";
 import SearchButton from "../../images/SearchButton";
 import { PetsPawContext } from "../../API/PetsService";
 
-
 const SearchForm = () => {
   const [name, setName] = useState("");
   const { getAllData } = useContext(PetsPawContext);
+  const { checkInputData } = useContext(PetsPawContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name) {
+      checkInputData(name);
       getAllData(name);
     }
   };
@@ -51,9 +52,7 @@ const Wrapper = styled.div`
     input::placeholder {
       color: #8c8c8c;
     }
-
   }
 `;
-
 
 export default SearchForm;
