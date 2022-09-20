@@ -73,14 +73,3 @@ const PetsPawProvider = ({ children }) => {
 
 export { PetsPawProvider, PetsPawContext };
 
-  // const checkInputData = async (props) => {
-  //   const resp = await axios
-  //     .get(`${url}`, `${headers}`)
-  //     .catch((err) => console.log(err));
-  //   if (resp.data.some((breed) => breed.name.includes(props))) {
-  //     setCheckData(resp);
-  //     console.log(resp, "setCheckData");
-  //   } else {
-  //     alert("no such breed name. Try again!");
-  //   }
-  // };

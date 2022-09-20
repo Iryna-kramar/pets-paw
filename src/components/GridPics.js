@@ -121,6 +121,8 @@ function GridPics() {
     ];
   }
 
+  console.log(nameImageData)
+
   return (
     <GridWrapper>
       <Grid>
@@ -133,7 +135,7 @@ function GridPics() {
         >
           {itemData(nameImageData).map((item) => (
             <ImageListItem
-              key={item?.img}
+              key={item.id}
               cols={item.cols || 1}
               rows={item.rows || 1}
             >

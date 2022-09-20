@@ -5,7 +5,6 @@ import BREEDS from "../images/BREEDS.png";
 import ButtonTopBar from "./ButtonTopBar";
 import GridPics from "./GridPics";
 import ArrowLeftButton from "../images/ArrowLeftButton";
-import { PetsPawContext } from "../API/PetsService";
 
 function BreedsContent() {
 

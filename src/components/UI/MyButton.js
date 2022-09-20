@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 const MyButton = ({ children, ...props }) => {
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = event => {
+    setIsActive(current => !current);
+  };
+
   return (
-    <ButtonStyle>
+    <ButtonStyle className={isActive ? 'active' : ''} onClick={handleClick}>
       {children}
     </ButtonStyle>
   );
@@ -34,11 +41,12 @@ const ButtonStyle = styled.button`
     border: #fbe0dc;
   }
 
-  :active {
+  .active {
     background-color: #ff868e;
     color: white;
     border: #ff868e;
   }
+
 `;
 
 export default MyButton;

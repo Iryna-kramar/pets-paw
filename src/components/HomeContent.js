@@ -14,7 +14,6 @@ function HomeContent() {
 }
 
 const Wrapper = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -23,7 +22,7 @@ const Wrapper = styled.div`
   height: 100%;
 
   div {
-    position: absolute;
+    position: relative;
     right: -30px;
     img {
       width: 100%;

@@ -54,6 +54,7 @@ const WrapperItems = styled.article`
   .GALLERY {
     background-color: #ffd280;
   }
+
 `;
 
 export default NavItem;

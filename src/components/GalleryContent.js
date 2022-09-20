@@ -15,9 +15,9 @@ function GalleryContent() {
         <div className="buttons">
           <div>
             <ArrowLeftButton />
-            <img src={GALLERY} className="pageName"></img>
+            <img src={GALLERY} className="pageName" alt=''></img>
           </div>
-          <img src={UPLOAD} className="upload"></img>
+          <img src={UPLOAD} className="upload" alt=''></img>
         </div>
         <div className="filter"></div>
         <GridPics />
